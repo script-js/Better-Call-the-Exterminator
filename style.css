@@ -11,8 +11,13 @@ body,html {
 }
 
 .guessImg {
-  width: 30%;
+  width: 100%;
   cursor: pointer;
+}
+
+.guessCont {
+  width: 30%;
+  text-align: center;
 }
 
 .guessImg:hover {
