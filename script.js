@@ -17,4 +17,4 @@ function setRandCR() {
   var options = [sourceR,sourceR.room1,sourceR.room2]
   currentRoom = options[Math.floor(Math.random() * options.length)]
 }
-getRandCR()
+setRandCR()
