@@ -25,18 +25,21 @@ function guess(elem) {
 
 function popup(text) {
   if (!text) {
-    popup.style = "height:2px;width:2px;"
+    popup.style.height = "2px"
+    popup.style.width = "2px"
     popup.innerHTML = "";
     setTimeout(function() {
       popupBack.style.display = "none";
     },400)
   } else {
-    popupBack.style.display = "block";
+    popupBack.style.display = "flex";
     setTimeout(function() {
-      popup.style = "height:90%;width:90%;"
+      popup.style.height = "90%"
+      popup.style.width = "90%"
     },50)
     setTimeout(function() {
       popup.innerHTML = text;
     },400)
   }
+  popup()
 }
