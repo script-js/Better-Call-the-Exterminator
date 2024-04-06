@@ -34,4 +34,5 @@ body,html {
 
 #popup {
   background: red;
+  transition: ease 400ms;
 }
