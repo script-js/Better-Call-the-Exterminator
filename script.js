@@ -20,7 +20,11 @@ function setRandCR() {
 setRandCR()
 
 function guess(elem) {
-  console.log(elem.src.includes(sourceR))
+  if (elem.src.includes(sourceR)) {
+    menu("incorrect")
+  } else {
+    menu("correct")
+  }
 }
 
 function menu(text) {
