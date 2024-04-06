@@ -11,7 +11,8 @@ body,html {
 }
 
 .guessImg {
-  height: 10%;
+  width: 30%;
+  cursor: pointer;
 }
 
 .guessImg:hover {
@@ -23,4 +24,5 @@ body,html {
   align-items: center;
   justify-content: center;
   gap: 50px;
+  flex-wrap: wrap;
 }
