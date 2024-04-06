@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+body,html {
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.guessImg {
+  height: 10%;
+}
+
+.guessImg:hover {
+  border: 10px solid white;
+}
+
+#guessBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
