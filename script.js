@@ -21,9 +21,9 @@ setRandCR()
 
 function guess(elem) {
   if (!elem.src.includes(sourceR)) {
-    menu("incorrect")
+    popout("incorrect")
   } else {
-    menu("correct")
+    popout("correct")
   }
 }
 
