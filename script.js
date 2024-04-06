@@ -23,7 +23,7 @@ function guess(elem) {
   console.log(elem.src.includes(sourceR))
 }
 
-function popup(text) {
+function menu(text) {
   if (!text) {
     popup.style.height = "2px"
     popup.style.width = "2px"
@@ -41,5 +41,4 @@ function popup(text) {
       popup.innerHTML = text;
     },400)
   }
-  popup()
 }
