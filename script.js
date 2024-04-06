@@ -22,3 +22,21 @@ setRandCR()
 function guess(elem) {
   console.log(elem.src.includes(sourceR))
 }
+
+function popup(text) {
+  if (!text) {
+    popup.style = "height:2px;width:2px;"
+    popup.innerHTML = "";
+    setTimeout(function() {
+      popupBack.style.display = "none";
+    },400)
+  } else {
+    popupBack.style.display = "block";
+    setTimeout(function() {
+      popup.style = "height:90%;width:90%;"
+    },50)
+    setTimeout(function() {
+      popup.innerHTML = "<p>&nbsp;</p>" + text;
+    },400)
+  }
+}
