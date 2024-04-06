@@ -36,7 +36,7 @@ function popup(text) {
       popup.style = "height:90%;width:90%;"
     },50)
     setTimeout(function() {
-      popup.innerHTML = "<p>&nbsp;</p>" + text;
+      popup.innerHTML = text;
     },400)
   }
 }
