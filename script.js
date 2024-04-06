@@ -18,3 +18,7 @@ function setRandCR() {
   currentRoom = options[Math.floor(Math.random() * options.length)]
 }
 setRandCR()
+
+function guess(elem) {
+  console.log(elem.src.includes(sourceR))
+}
