@@ -12,7 +12,7 @@ var rooms = {
 var sourceR = roomPicker[Math.floor(Math.random() * roomPicker.length)];
 var currentRoom = "";
 
-function getRandCR() {
+function setRandCR() {
   var src = rooms[sourceR]
   var options = [sourceR,sourceR.room1,sourceR.room2]
   currentRoom = options[Math.floor(Math.random() * options.length)]
