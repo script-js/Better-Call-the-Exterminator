@@ -31,3 +31,7 @@ body,html {
   gap: 50px;
   flex-wrap: wrap;
 }
+
+#popup {
+  background: red;
+}
