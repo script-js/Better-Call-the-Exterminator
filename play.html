@@ -9,5 +9,24 @@
     <div class="modal" id="popupBack"><div style="font-size: 50px;cursor:pointer;user-select:none;display:none" onclick="menu()" id="close">&times</div><div id="popup" style="width:2px;height:2px;"></div></div>
     <div id="guessBox"><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bedbath.jpg" style="width:40%"><br>Ensuite Bathroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bed2.jpg"><br>Master Bedroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bath.jpg"><br>Bathroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bed1.jpg"><br>Second Bedroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/kitchen.jpg"><br>Kitchen</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/living.jpg"><br>Living Room</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/family.jpg"><br>Family Room</div></div>
   </body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWBFJ9yYYDXTgTQieDFfJ5O4uVJ2GMEos",
+      authDomain: "better-call-the-exterminator.firebaseapp.com",
+      projectId: "better-call-the-exterminator",
+      storageBucket: "better-call-the-exterminator.appspot.com",
+      messagingSenderId: "786054842141",
+      appId: "1:786054842141:web:eaafc978769f9e423b03f4"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script src="script.js"></script>
 </html>
