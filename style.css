@@ -35,7 +35,7 @@ body,html {
 }
 
 #popup {
-  background: red;
+  background: #e82e20;
   transition: ease 400ms;
   display: flex;
   align-items: center;
