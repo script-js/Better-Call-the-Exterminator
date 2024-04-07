@@ -21,9 +21,9 @@ setRandCR()
 
 function guess(elem) {
   if (!elem.src.includes(sourceR)) {
-    popout("incorrect")
+    popout("<img width='30%' src='assets/exterminator.png'><h1>There's nothing in there. You guys call us back when you have an ACTUAL problem. Correction: Don't call us back.</h1>")
   } else {
-    popout("correct")
+    popout("<img width='30%' src='assets/exterminator.png'><h1>Alright, I killed all the spiders. Now leave me alone.</h1>")
   }
 }
 
