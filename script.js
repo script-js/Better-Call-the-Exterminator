@@ -21,9 +21,9 @@ setRandCR()
 
 function guess(elem) {
   if (!elem.src.includes(sourceR)) {
-    popout("<img width='50%' src='assets/exterminator.png'><h1>There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me.</h1>")
+    interact("assets/exterminator.png","There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me at all.")
   } else {
-    popout("<img width='50%' src='assets/exterminator.png'><h1>Alright, I got rid of all the spiders. Now leave me alone.</h1>")
+    interact("assets/exterminator.png","Alright, I got rid of all the spiders. Now leave me alone.")
   }
 }
 
@@ -70,4 +70,8 @@ function popout(text) {
       popup.innerHTML = text;
     },400)
   }
+}
+
+function interact(charloc,msg) {
+  popout("<img width='50%' src='" + charloc + "'><h1>" + msg + "</h1>")
 }
