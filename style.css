@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+@font-face {
+  font-family: "Digital";
+  src: url("src/digital-7.ttf");
+}
 
 * {
   font-family: "Rubik", sans-serif;
@@ -57,4 +63,12 @@ body,html {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
+}
+
+#hostInfo {
+  font-family: "Permanent Marker", sans-serif;
+}
+
+#hostTime {
+  font-family: "Digital", sans-serif;
 }
