@@ -72,3 +72,9 @@ body,html {
 #hostTime {
   font-family: "Digital", sans-serif;
 }
+
+.corkCont {
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
