@@ -23,7 +23,7 @@ function guess(elem) {
   if (!elem.src.includes(sourceR)) {
     popout("<img width='50%' src='assets/exterminator.png'><h1>There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me.</h1>")
   } else {
-    popout("<img width='50%' src='assets/exterminator.png'><h1>Alright, I killed all the spiders. Now leave me alone.</h1>")
+    popout("<img width='50%' src='assets/exterminator.png'><h1>Alright, I got rid of all the spiders. Now leave me alone.</h1>")
   }
 }
 
