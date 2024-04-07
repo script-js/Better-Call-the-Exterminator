@@ -32,6 +32,7 @@ function menu(text) {
     popup.style.height = "2px"
     popup.style.width = "2px"
     popup.innerHTML = "";
+    close.style.display = "none"
     setTimeout(function() {
       popupBack.style.display = "none";
       popupBack.style.justifyContent = "center"
@@ -42,9 +43,11 @@ function menu(text) {
     setTimeout(function() {
       popup.style.height = "90%"
       popup.style.width = "90%"
+      
     },50)
     setTimeout(function() {
       popup.innerHTML = text;
+      close.style.display = "inline"
     },400)
   }
 }
