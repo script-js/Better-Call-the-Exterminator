@@ -29,7 +29,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase();
-    var acint = setInterval(actionCheck,500);
+    var acint;
     function createGame() {
   window.newid = Math.ceil(Math.random() * (20000000 - 10000000) + 10000000)
     get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
@@ -77,7 +77,7 @@
 
           
     popout(`
-      <h1 style='font-size:100px' id='pin'>Loading PIN...</h1>
+      <h1 style='font-size:70px' id='pin'>Loading PIN...</h1>
       <div id='names'></div>
     `)
     function startG() {
@@ -85,6 +85,7 @@
         clearInterval(nameint)
         setInterval(count,500)
         update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
+        acint = setInterval(actionCheck,500);
       }
     function getNames() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
