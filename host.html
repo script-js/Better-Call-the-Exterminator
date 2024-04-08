@@ -28,7 +28,48 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const db = getDatabase()
+    const db = getDatabase();
+    var acint = setInterval(actionCheck,500);
+    function createGame() {
+  window.newid = Math.ceil(Math.random() * (20000000 - 10000000) + 10000000)
+    get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
+      if (snapshot.exists()) {createGame()} else {
+        update(ref(getDatabase,"gameid/" + newid),{
+          "source": sourceR,
+          "currentAttackRoom": currentRoom
+        })
+      get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
+          if (snapshot.exists()) {
+            pinShow()
+          }
+      })
+      }})
+      }
+    function actionCheck() {
+        get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
+          if (snapshot.exists()) {
+            var data = snapshot.val()
+            var act = data.action
+            if (act) {
+              popout(act)
+              clearInterval(acint)
+              acint = setInterval(removeACheck,500)
+            }
+          }
+        })
+      }
+
+      function removeACheck() {
+            get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                if (!data.action) {
+                  popout()
+                  clearInterval(acint)
+                  acint = setInterval(actionCheck,500)
+                }
+              }})
+          }
   </script>
   <script src="script.js"></script>
 </html>
