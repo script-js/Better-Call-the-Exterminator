@@ -110,6 +110,9 @@
     }
 
     function newround() {
+      var src = rooms[sourceR]
+      var options = [sourceR,sourceR.room1,sourceR.room2]
+      var currentRoom = options[Math.floor(Math.random() * options.length)]
       var newNames = names
       var name1num = Math.floor(Math.random() * newNames.length)
       var name1 = newNames[name1num]
