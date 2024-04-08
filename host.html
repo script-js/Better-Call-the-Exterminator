@@ -87,9 +87,9 @@
     function startG() {
         popout()
         clearInterval(nameint)
-        setInterval(count,500)
+        setInterval(count,1000)
         update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
-        acint = setInterval(actionCheck,1000);
+        acint = setInterval(actionCheck,500);
       }
     function getNames() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
