@@ -123,7 +123,6 @@
       var name3num = Math.floor(Math.random() * newNames.length)
       var name3 = newNames[name3num]
       delete newNames[name3num]
-      setRandCR()
       update(ref(getDatabase(), 'gameid/' + newid), {
         "currentGuessers": name1 + "," + name2 + "," + name3,
         "currentAttackRoom": currentRoom
