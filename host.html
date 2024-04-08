@@ -74,10 +74,54 @@
             pin.innerHTML = newid
             names.innerHTML = "Waiting for players..."
           }
+
+          
     popout(`
       <h1 style='font-size:100px' id='pin'>Loading PIN...</h1>
       <div id='names'></div>
     `)
+    function startG() {
+        popout()
+        clearInterval(nameint)
+        setInterval(count,500)
+        update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
+      }
+    function getNames() {
+      get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                var stringdata = "";
+                Object.keys(data).forEach(function(k) {
+                  stringdata = stringdata + "<div class='name'>" + data[k] + "</div>"
+                })
+                names.innerHTML = stringdata + "<p><button onclick='startG()'>Start</button></p>"
+              }})
+    }
+    function count() {
+  trMin = trMin + 1
+  if (trMin == 60) {
+    trMin = 0
+    trHour = trHour + 1
+  }
+  if (trMin.toString().length == 1) {
+    var minTXT = "0" + trMin
+  } else {
+    var minTXT = trMin
+  }
+  if (trHour == 12) {
+    update(ref(getDatabase(),'gameid/' + newid),{"timeroff":true})
+    popout("<h1>Time's Up!</h1>")
+    setTimeout(endGame,3000)
+  } else {
+    hostTime.innerHTML = trHour + ":" + minTXT
+  }
+}
+    function endGame(curl) {
+        set(ref(getDatabase(), 'gameid/' + newid), {});
+        if (curl) {location.replace(curl)} else {location.replace("/")}
+      }
+    var nameint = setInterval(getNames,500)
+    window.startG = startG
   </script>
   <script src="script.js"></script>
 </html>
