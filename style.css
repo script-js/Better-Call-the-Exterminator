@@ -65,8 +65,18 @@ body,html {
   overflow: auto; /* Enable scroll if needed */
 }
 
+#hostInfo {
+  font-family: "Permanent Marker", sans-serif;
+  position: absolute;
+  left: 12%;
+  top: 30%;
+  width: 20%;
+  color: black;
+}
+
 #hostInfo * {
   font-family: "Permanent Marker", sans-serif;
+  color: black;
 }
 
 #hostTime {
