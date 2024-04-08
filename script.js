@@ -12,13 +12,6 @@ var rooms = {
 var sourceR = roomPicker[Math.floor(Math.random() * roomPicker.length)];
 var currentRoom = "";
 
-function setRandCR() {
-  var src = rooms[sourceR]
-  var options = [sourceR,sourceR.room1,sourceR.room2]
-  currentRoom = options[Math.floor(Math.random() * options.length)]
-}
-setRandCR()
-
 function guess(elem) {
   if (!elem.src.includes(sourceR)) {
     interact("assets/exterminator.png","There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me at all.")
