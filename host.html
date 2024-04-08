@@ -70,6 +70,14 @@
                 }
               }})
           }
+          function pinShow() {
+            pin.innerHTML = newid
+            names.innerHTML = "Waiting for players..."
+          }
+    popout(`
+      <h1 style='font-size:100px' id='pin'>Loading PIN...</h1>
+      <div id='names'></div>
+    `)
   </script>
   <script src="script.js"></script>
 </html>
