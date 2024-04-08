@@ -34,10 +34,10 @@
   window.newid = Math.ceil(Math.random() * (20000000 - 10000000) + 10000000)
     get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
       if (snapshot.exists()) {createGame()} else {
-        update(ref(getDatabase,"gameid/" + newid),{
+        update(ref(getDatabase(), 'gameid/' + newid), {
           "source": sourceR,
           "currentAttackRoom": currentRoom
-        })
+        });
       get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
           if (snapshot.exists()) {
             pinShow()
