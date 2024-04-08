@@ -45,6 +45,7 @@
       })
       }})
       }
+    createGame()
     function actionCheck() {
         get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
           if (snapshot.exists()) {
