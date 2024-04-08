@@ -79,8 +79,10 @@
 
           
     popout(`
-      <h1 style='font-size:70px' id='pin'>Loading PIN...</h1>
-      <div id='names'></div>
+      <div>
+        <h1 style='font-size:70px' id='pin'>Loading PIN...</h1>
+        <div id='names'></div>
+      </div>
     `)
     function startG() {
         popout()
@@ -100,6 +102,8 @@
                 names.innerHTML = stringdata + "<p><button onclick='startG()'>Start</button></p>"
               }})
     }
+    var trMin = 0
+    var trHour = 0
     function count() {
   trMin = trMin + 1
   if (trMin == 60) {
