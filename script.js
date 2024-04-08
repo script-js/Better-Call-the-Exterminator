@@ -10,7 +10,6 @@ var rooms = {
 }
 
 var sourceR = roomPicker[Math.floor(Math.random() * roomPicker.length)];
-var currentRoom = "";
 
 function guess(elem) {
   if (!elem.src.includes(sourceR)) {
