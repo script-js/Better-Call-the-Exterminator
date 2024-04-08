@@ -86,6 +86,7 @@
         setInterval(count,500)
         update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
         acint = setInterval(actionCheck,500);
+      nameint = setInterval(getNames,500)
       }
     function getNames() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
@@ -121,7 +122,7 @@
         set(ref(getDatabase(), 'gameid/' + newid), {});
         if (curl) {location.replace(curl)} else {location.replace("/")}
       }
-    var nameint = setInterval(getNames,500)
+    var nameint;
     window.startG = startG
   </script>
   <script src="script.js"></script>
