@@ -36,8 +36,7 @@
     get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
       if (snapshot.exists()) {createGame()} else {
         update(ref(getDatabase(), 'gameid/' + newid), {
-          "source": sourceR,
-          "currentAttackRoom": currentRoom
+          "source": sourceR
         });
       get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
           if (snapshot.exists()) {
@@ -101,7 +100,31 @@
                   stringdata = stringdata + "<div class='name'>" + data[k] + "</div>"
                 })
                 names.innerHTML = stringdata + "<p><button onclick='startG()'>Start</button></p>"
+                window.names = [];
+                var num = -1
+                Object.keys(data).forEach(function(k) {
+                  num = num + 1
+                  names[num] = k
+                })
               }})
+    }
+
+    function newround() {
+      var newNames = names
+      var name1num = Math.floor(Math.random() * newNames.length)
+      var name1 = newNames[name1num]
+      delete newNames[name1num]
+      var name2num = Math.floor(Math.random() * newNames.length)
+      var name2 = newNames[name2num]
+      delete newNames[name2num]
+      var name3num = Math.floor(Math.random() * newNames.length)
+      var name3 = newNames[name3num]
+      delete newNames[name3num]
+      setRandCR()
+      update(ref(getDatabase(), 'gameid/' + newid), {
+        "currentGuessers": name1 + "," + name2 + "," + name3,
+        "currentAttackRoom": currentRoom
+      });
     }
 
     function getInfo() {
@@ -141,5 +164,6 @@
     var nameint;
     setInterval(getInfo,1000)
     window.startG = startG
+    window.newround = newround
   </script>
 </html>
