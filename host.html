@@ -149,7 +149,10 @@
          var minTXT = trMin
       }
       if (trHour == 12) {
-        update(ref(getDatabase(),'gameid/' + newid),{"timeroff":true})
+        update(ref(getDatabase(),'gameid/' + newid),{"action":"<img width='50%' src='assets/exterminator.png'><h1>Alright, where are the bugs?</h1>"})
+        setTimeout(function() { 
+          update(ref(getDatabase(),'gameid/' + newid),{"action":"<h1>Vote for the room you think the nest is.</h1>"})
+        },2000)
         popout("<h1>Time's Up!</h1>")
         setTimeout(endGame,3000)
       } else {
