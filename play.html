@@ -29,6 +29,37 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase()
+
+    function actionCheck() {
+        get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
+          if (snapshot.exists()) {
+            var data = snapshot.val()
+            var act = data.action
+            if (act) {
+              popout(act)
+              clearInterval(acint)
+              acint = setInterval(removeACheck,500)
+            }
+          }
+        })
+      }
+
+      function removeACheck() {
+            get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                if (!data.action) {
+                  popout()
+                  clearInterval(acint)
+                  acint = setInterval(actionCheck,500)
+                }
+              }})
+          }
+    var acint;
+    if (sessionStorage.getItem("gameid")) {
+      window.gameid = sessionStorage.getItem("gameid")
+      acint = setInterval(actionCheck,500)
+    }
   </script>
   <script src="script.js"></script>
 </html>
