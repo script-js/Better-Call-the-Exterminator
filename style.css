@@ -95,3 +95,16 @@ body,html {
   width: fit-content;
   margin: auto;
 }
+
+#namesD {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.name {
+  padding: 5px;
+  background: white;
+  color: black;
+}
