@@ -29,6 +29,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase()
+    const dbRef = ref(db)
 
     function actionCheck() {
         get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
