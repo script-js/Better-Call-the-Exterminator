@@ -113,21 +113,13 @@
       var src = rooms[sourceR]
       var options = [sourceR,src.room1,src.room2]
       var currentRoom = options[Math.floor(Math.random() * options.length)]
-      var newNames = []
-      Object.keys(names).forEach(function(k) {
-        newNames[k] = names[k]
-      })
-      var name1num = Math.floor(Math.random() * newNames.length)
-      var name1 = newNames[name1num]
-      delete newNames[name1num]
-      var name2num = Math.floor(Math.random() * newNames.length)
-      var name2 = newNames[name2num]
-      delete newNames[name2num]
-      var name3num = Math.floor(Math.random() * newNames.length)
-      var name3 = newNames[name3num]
-      delete newNames[name3num]
+      var name1 = names[Math.floor(Math.random() * names.length)]
+      var name2 = names[Math.floor(Math.random() * names.length)]
+      var name3 = names[Math.floor(Math.random() * names.length)]
+      var name4 = names[Math.floor(Math.random() * names.length)]
+      var name5 = names[Math.floor(Math.random() * names.length)]
       update(ref(getDatabase(), 'gameid/' + newid), {
-        "currentGuessers": name1 + "," + name2 + "," + name3,
+        "currentGuessers": name1 + "," + name2 + "," + name3 + "," + name4 + "," + name5,
         "currentAttackRoom": currentRoom
       });
     }
