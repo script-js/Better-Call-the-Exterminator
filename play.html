@@ -55,10 +55,20 @@
                 }
               }})
           }
+    function sync() {
+      var toadd = {}
+      toadd["/gameid/" + gameid + "/players/" + playerID] = uid;
+      update(dbRef,toadd)
+    }
+    
     var acint;
-    if (sessionStorage.getItem("gameid")) {
+    if (sessionStorage.getItem("gameid") && localStorage.getItem("username")) {
       window.gameid = sessionStorage.getItem("gameid")
       acint = setInterval(actionCheck,500)
+      var playerID = btoa(Math.random())
+      window.uid = localStorage.getItem("username")
+    } else {
+      popout("<div style='text-align:center'><h1>Something went wrong!</h1><a href='join'><button>Go Back</button></a></div>")
     }
   </script>
   <script src="script.js"></script>
