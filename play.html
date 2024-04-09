@@ -56,17 +56,26 @@
               }})
           }
     function sync() {
-      var toadd = {}
-      toadd["/gameid/" + gameid + "/players/" + playerID] = uid;
-      update(dbRef,toadd)
+      get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                sourceR = data.source
+                var toadd = {}
+                toadd["/gameid/" + gameid + "/players/" + playerID] = uid;
+                update(dbRef,toadd)
+                acint = setInterval(actionCheck,500)
+              } else {
+                popout("<div style='text-align:center'><h1>Game ID Inactive</h1><a href='/'><button>Go Back</button></a></div>")
+              }
+      })
     }
     
     var acint;
     if (sessionStorage.getItem("gameid") && localStorage.getItem("username")) {
       window.gameid = sessionStorage.getItem("gameid")
-      acint = setInterval(actionCheck,500)
       var playerID = btoa(Math.random())
       window.uid = localStorage.getItem("username")
+      sync()
     } else {
       popout("<div style='text-align:center'><h1>Something went wrong!</h1><a href='join'><button>Go Back</button></a></div>")
     }
