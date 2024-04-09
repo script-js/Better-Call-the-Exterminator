@@ -113,7 +113,10 @@
       var src = rooms[sourceR]
       var options = [sourceR,src.room1,src.room2]
       var currentRoom = options[Math.floor(Math.random() * options.length)]
-      var newNames = names
+      var newNames = []
+      Object.keys(names).forEach(function(k) {
+        newNames[k] = names[k]
+      })
       var name1num = Math.floor(Math.random() * newNames.length)
       var name1 = newNames[name1num]
       delete newNames[name1num]
