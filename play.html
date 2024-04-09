@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="modal" id="popupBack"><div style="font-size: 50px;cursor:pointer;user-select:none;display:none" onclick="menu()" id="close">&times</div><div id="popup" style="width:2px;height:2px;"></div></div>
-    <div id="guessBox"><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bedbath.jpg" style="width:40%"><br>Ensuite Bathroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bed2.jpg"><br>Master Bedroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bath.jpg"><br>Bathroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/bed1.jpg"><br>Second Bedroom</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/kitchen.jpg"><br>Kitchen</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/living.jpg"><br>Living Room</div><div class="guessCont"><img onclick="guess(this)" class="guessImg" src="assets/family.jpg"><br>Family Room</div></div>
+    <div id="guessBox"><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/bedbath.jpg" style="width:40%"><br>Ensuite Bathroom</div><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/bed2.jpg"><br>Master Bedroom</div><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/bath.jpg"><br>Bathroom</div><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/bed1.jpg"><br>Second Bedroom</div><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/kitchen.jpg"><br>Kitchen</div><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/living.jpg"><br>Living Room</div><div class="guessCont"><img onclick="sendChoice(this)" class="guessImg" src="assets/family.jpg"><br>Family Room</div></div>
   </body>
   <script type="module">
     // Import the functions you need from the SDKs you need
@@ -37,6 +37,12 @@
             var data = snapshot.val()
             var act = data.action
             if (act) {
+              if (act == "<h1>Vote for the room you think the nest is.</h1>") {
+                setTimeout(function() {
+                  changeBF(function() {sendVote(this)})
+                  popout()
+                },2000)
+              }
               popout(act)
               clearInterval(acint)
               acint = setInterval(removeACheck,500)
@@ -79,6 +85,13 @@
       sync()
     } else {
       popout("<div style='text-align:center'><h1>Something went wrong!</h1><a href='join'><button>Go Back</button></a></div>")
+    }
+
+    function changeBF(func) {
+      var choices = guessBox.querySelector(".guessImg")
+      Object.keys(choices).forEach(function(k) {
+        choices[k].onclick = func
+      })
     }
   </script>
   <script src="script.js"></script>
