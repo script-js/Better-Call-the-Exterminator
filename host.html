@@ -82,6 +82,7 @@
       <div style="text-align:center">
         <h1 style='font-size:70px' id='pin'>Loading PIN...</h1>
         <div id='namesD'></div>
+        <p><button onclick='startG()' id='sbtn' style='display:none'>Start</button></p>
       </div>
     `)
     function startG() {
@@ -99,7 +100,8 @@
                 Object.keys(data).forEach(function(k) {
                   stringdata = stringdata + "<div class='name'>" + data[k] + "</div>"
                 })
-                namesD.innerHTML = stringdata + "<p><button onclick='startG()'>Start</button></p>"
+                namesD.innerHTML = stringdata
+                sbtn.style.display = "block";
                 window.names = [];
                 var num = -1
                 Object.keys(data).forEach(function(k) {
