@@ -133,27 +133,27 @@
                 }
               }})
     }
-    var trMin = 1
+    var trMin = 0
     var trHour = 5
     function count() {
-  trMin = trMin - 1
-  if (trMin == 0) {
-    trMin = 60
-    trHour = trHour - 1
-  }
-  if (trMin.toString().length == 1) {
-    var minTXT = "0" + trMin
-  } else {
-    var minTXT = trMin
-  }
-  if (trHour == 12) {
-    update(ref(getDatabase(),'gameid/' + newid),{"timeroff":true})
-    popout("<h1>Time's Up!</h1>")
-    setTimeout(endGame,3000)
-  } else {
-    hostTime.innerHTML = trHour + ":" + minTXT
-  }
-}
+      trMin = trMin - 1
+      if (trMin == 0) {
+        trMin = 60
+        trHour = trHour - 1
+      }
+      if (trMin.toString().length == 1) {
+        var minTXT = "0" + trMin
+      } else {
+         var minTXT = trMin
+      }
+      if (trHour == 12) {
+        update(ref(getDatabase(),'gameid/' + newid),{"timeroff":true})
+        popout("<h1>Time's Up!</h1>")
+        setTimeout(endGame,3000)
+      } else {
+        hostTime.innerHTML = trHour + ":" + minTXT
+      }
+    }
     function endGame(curl) {
         set(ref(getDatabase(), 'gameid/' + newid), {});
         if (curl) {location.replace(curl)} else {location.replace("/")}
