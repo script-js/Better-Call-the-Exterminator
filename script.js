@@ -11,8 +11,8 @@ var rooms = {
 
 var sourceR = roomPicker[Math.floor(Math.random() * roomPicker.length)];
 
-function guess(elem) {
-  if (!elem.src.includes(sourceR)) {
+function guess(g) {
+  if (!g.includes(sourceR)) {
     interact("assets/exterminator.png","There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me at all.")
   } else {
     interact("assets/exterminator.png","Alright, I got rid of all the spiders. Now leave me alone.")
