@@ -88,7 +88,7 @@
     }
 
     function changeBF(func) {
-      var choices = guessBox.querySelector(".guessImg")
+      var choices = guessBox.querySelectorAll(".guessImg")
       Object.keys(choices).forEach(function(k) {
         choices[k].onclick = func
       })
