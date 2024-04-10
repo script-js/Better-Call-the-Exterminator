@@ -109,6 +109,7 @@
           toadd[choice] = 1;
         };
         update(ref(db,"/gameid/" + gameid + "/votes"),toadd)
+        popout("<div style='text-align:center'><h1>Vote Cast</h1>The result will appear on the main screen.</div>")
       });
     }
 
