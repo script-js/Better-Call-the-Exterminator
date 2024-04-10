@@ -85,10 +85,11 @@
         <p><button onclick='startG()' id='sbtn' style='display:none;margin:auto'>Start</button></p>
       </div>
     `)
+    var countint;
     function startG() {
         popout()
         clearInterval(nameint)
-        setInterval(count,1000)
+        countint = setInterval(count,1000)
         update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
         acint = setInterval(actionCheck,500);
       }
@@ -156,6 +157,7 @@
           voteint = setInterval(voteCheck,1000)
         },3000)
         voteint = setInterval(voteCheck,1000)
+        clearInterval(countint)
       } else {
         hostTime.innerHTML = trHour + ":" + minTXT
       }
