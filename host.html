@@ -152,6 +152,7 @@
         update(ref(getDatabase(),'gameid/' + newid),{"action":"<img width='50%' src='assets/exterminator.png'><h1>Alright, where are the bugs?</h1>"})
         setTimeout(function() { 
           update(ref(getDatabase(),'gameid/' + newid),{"action":"<h1>Vote for the room you think the nest is.</h1>"})
+          voteint = setInterval(voteCheck,1000)
         },2000)
         voteint = setInterval(voteCheck,1000)
       } else {
