@@ -13,7 +13,7 @@
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { get, update, getDatabase, ref, child } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+    import { get, update, getDatabase, ref, child, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -153,8 +153,7 @@
         setTimeout(function() { 
           update(ref(getDatabase(),'gameid/' + newid),{"action":"<h1>Vote for the room you think the nest is.</h1>"})
         },2000)
-        popout("<h1>Time's Up!</h1>")
-        setTimeout(endGame,3000)
+        voteint = setInterval(voteCheck,1000)
       } else {
         hostTime.innerHTML = trHour + ":" + minTXT
       }
@@ -165,7 +164,7 @@
       }
     var nameint;
     setInterval(getInfo,1000)
-
+    var voteint;
     function voteCheck() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/votes")).then((snapshot) => {
               if (snapshot.exists()) {
@@ -173,6 +172,7 @@
                 var sortedJSON = Object.entries(data).sort((a, b) => b[1] - a[1]).reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
                 var sortedArray = Object.keys(sortedJSON)
                 if (sortedArray.length == names.length) {
+                  clearInterval(voteint)
                   guess(sortedArray[0])
                 }
               }})
