@@ -62,6 +62,7 @@
                 }
               }})
           }
+    var startint;
     function sync() {
       get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
               if (snapshot.exists()) {
@@ -71,8 +72,20 @@
                 toadd["/gameid/" + gameid + "/players/" + playerID] = uid;
                 update(dbRef,toadd)
                 acint = setInterval(actionCheck,500)
+                popout("<h1>Waiting for the game to start...</h1>")
+                startint = setInterval(startCheck,100)
               } else {
                 popout("<div style='text-align:center'><h1>Game ID Inactive</h1><a href='/'><button>Go Back</button></a></div>")
+              }
+      })
+    }
+    function startCheck() {
+      get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                if (data.started == true) {
+                  popout()
+                }
               }
       })
     }
