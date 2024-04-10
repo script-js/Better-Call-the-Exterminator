@@ -165,6 +165,20 @@
       }
     var nameint;
     setInterval(getInfo,1000)
+
+    function voteCheck() {
+      get(child(ref(getDatabase()), "gameid/" + newid + "/votes")).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                var sortedJSON = Object.entries(data).sort((a, b) => b[1] - a[1]).reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
+                var sortedArray = Object.keys(sortedJSON)
+                if (sortedArray.length == names.length) {
+                  guess(sortedArray[0])
+                }
+              }})
+    }
+    window.voteCheck = voteCheck
+    window.count = count
     window.startG = startG
     window.newround = newround
   </script>
