@@ -183,5 +183,6 @@
     window.count = count
     window.startG = startG
     window.newround = newround
+    window.onbeforeunload = function() {set(ref(getDatabase(), 'gameid/' + newid), {})}
   </script>
 </html>
