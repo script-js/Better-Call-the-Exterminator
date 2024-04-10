@@ -149,7 +149,7 @@
       } else {
          var minTXT = trMin
       }
-      if (trHour == 0 && trMin == -1) {
+      if (trHour == 0 && trMin == 0) {
         update(ref(getDatabase(),'gameid/' + newid),{"action":"<img width='50%' src='assets/exterminator.png'><h1>Alright, where are the bugs?</h1>"})
         setTimeout(function() {
           update(ref(getDatabase(),'gameid/' + newid),{"action":null})
