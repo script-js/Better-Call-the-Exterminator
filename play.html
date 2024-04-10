@@ -100,7 +100,7 @@
         var toadd = {};
         if (snapshot.exists()) {
           var gdata = snapshot.val();
-          if (gdata[urlId]) {
+          if (gdata[choice]) {
             toadd[choice] = gdata[choice] + 1;
           } else {
             toadd[choice] = 1;
