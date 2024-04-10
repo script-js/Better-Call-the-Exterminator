@@ -95,7 +95,7 @@
     }
 
     function sendVote(elem) {
-      var choice = elem.src.replace("assets/","").replace(".jpg","")
+      var choice = elem.src.split("assets/")[1].replace(".jpg","")
       get(child(dbRef, "/gameid/" + gameid + "/votes")).then((snapshot) => {
         var toadd = {};
         if (snapshot.exists()) {
