@@ -93,6 +93,24 @@
         choices[k].onclick = func
       })
     }
+
+    function sendVote(elem) {
+      var choice = elem.src.replace("assets/","").replace(".jpg","")
+      get(child(dbRef, "/gameid/" + gameid + "/votes")).then((snapshot) => {
+        var toadd = {};
+        if (snapshot.exists()) {
+          var gdata = snapshot.val();
+          if (gdata[urlId]) {
+            toadd[choice] = gdata[choice] + 1;
+          } else {
+            toadd[choice] = 1;
+          }
+        } else {
+          toadd[choice] = 1;
+        };
+        update(ref(db,"/gameid/" + gameid + "/votes"),toadd)
+      });
+    }
   </script>
   <script src="script.js"></script>
 </html>
