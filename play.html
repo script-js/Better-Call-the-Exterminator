@@ -62,7 +62,8 @@
                   clearInterval(acint)
                   acint = setInterval(actionCheck,500)
                 }
-              }})
+              }
+            })
           }
     var startint;
     function sync() {
@@ -86,6 +87,7 @@
               if (snapshot.exists()) {
                 var data = snapshot.val()
                 if (data.started == true) {
+                  clearInterval(startint)
                   popout()
                 }
               }
