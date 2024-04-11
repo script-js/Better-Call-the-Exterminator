@@ -89,6 +89,7 @@
     function startG() {
         popout()
         clearInterval(nameint)
+        nameint = setInterval(getNames2,1000)
         countint = setInterval(count,1000)
         update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
         acint = setInterval(actionCheck,500);
@@ -109,6 +110,22 @@
                   num = num + 1
                   names[num] = data[k]
                 })
+              }})
+    }
+        function getNames2() {
+      get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
+              if (snapshot.exists()) {
+                var data = snapshot.val()
+                sbtn.style.display = "block";
+                var tempnames = [];
+                var num = -1
+                Object.keys(data).forEach(function(k) {
+                  num = num + 1
+                  tempnames[num] = data[k]
+                })
+                if (tempnames != window.names) {
+                  window.names = tempnames
+                }
               }})
     }
 
