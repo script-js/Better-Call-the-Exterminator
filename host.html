@@ -123,7 +123,10 @@
                   tempnames[num] = data[k]
                 })
                 window.names = tempnames
-              }})
+              } else {
+                interact("assets/grave.png","Game Lost!<h5>Everyone was bitten by a spider before the exterminator arrived</h5>")
+              }
+      })
     }
 
     function newround() {
