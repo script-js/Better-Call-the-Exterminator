@@ -32,6 +32,7 @@
     const dbRef = ref(db)
 
     function actionCheck() {
+      console.log("ac")
         get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
           if (snapshot.exists()) {
             var data = snapshot.val()
@@ -52,6 +53,7 @@
       }
 
       function removeACheck() {
+        console.log("rac")
             get(child(ref(getDatabase()), "gameid/" + gameid)).then((snapshot) => {
               if (snapshot.exists()) {
                 var data = snapshot.val()
@@ -72,8 +74,8 @@
                 toadd["/gameid/" + gameid + "/players/" + playerID] = uid;
                 update(dbRef,toadd)
                 acint = setInterval(actionCheck,500)
-                popout("<h1>Waiting for the game to start...</h1>")
                 startint = setInterval(startCheck,100)
+                popout("<h1>Waiting for the game to start...</h1>")
               } else {
                 popout("<div style='text-align:center'><h1>Game ID Inactive</h1><a href='/'><button>Go Back</button></a></div>")
               }
