@@ -109,3 +109,10 @@ body,html {
   color: black;
   border-radius: 3px;
 }
+
+button {
+  border-radius: 3px;
+  background: white;
+  color: black;
+  border: 2px solid black;
+}
