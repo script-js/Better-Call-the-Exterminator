@@ -12,8 +12,8 @@
     <p id="errtext" style="color:red"></p>
     <button onclick="join()" style="box-shadow: 1px 1px 2px black;">Join</button>
     <script>
-      if (localStorage.getItem("mpname")) {
-        goip2.value = localStorage.getItem("mpname")
+      if (localStorage.getItem("username")) {
+        goip2.value = localStorage.getItem("username")
       }
 
       var jid = new URLSearchParams(window.location.search).get("id");
@@ -25,9 +25,9 @@
       function join() {
         if (goip.value) {
           if (goip2.value) {
-            localStorage.setItem("mpname",goip2.value)
+            localStorage.setItem("username",goip2.value)
           }
-          sessionStorage.setItem("multiplayer",goip.value)
+          sessionStorage.setItem("gameid",goip.value)
           location.replace("play")
         } else {
           errtext.innerHTML = "Enter a PIN"
