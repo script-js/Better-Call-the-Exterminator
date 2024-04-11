@@ -177,7 +177,11 @@
                 var data = snapshot.val()
                 var sortedJSON = Object.entries(data).sort((a, b) => b[1] - a[1]).reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
                 var sortedArray = Object.keys(sortedJSON)
-                if (sortedArray.length == names.length) {
+                var num = 0;
+                sortedArray.forEach(function(k) {
+                  num = num + sortedJSON[k]
+                })
+                if (num == names.length) {
                   clearInterval(voteint)
                   guess(sortedArray[0])
                 }
