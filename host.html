@@ -183,7 +183,7 @@
                 if (num == names.length) {
                   clearInterval(voteint)
                   var winner = sortedArray[0]
-                  popout("<h1>We have a winner:</h1><h2 class='moi'>" + winner + "</h2>")
+                  popout("<div style='text-align:center'><h1>We have a winner:</h1><br><h2 class='moi'>" + winner + "</h2></div>")
                   setTimeout(function() {
                     popout()
                     setTimeout(function() {guess(winner)},1000)
