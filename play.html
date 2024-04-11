@@ -129,7 +129,32 @@
         popout("<div style='text-align:center'><h1>Vote Cast</h1>The result will appear on the main screen.</div>")
       });
     }
+    function die(scaretype) {
+      interact("assets/" + scaretype,"Spider Attack!")
+      get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
+        var data = snapshot.val();
+        var dtext = uid + " was bitten in the " + data.currentAttackRoom
+        if (data.clues) {
+          var toadd = {
+            "clues": data.clues + dtext
+          }
+        } else {
+          var toadd = {
+            "clues": dtext
+          }
+        }
+        update(ref(db,"/gameid/" + gameid),toadd)
+      })
+    }
 
+    function sendChoice(elem) {
+      var choice = elem.src.split("assets/")[1].replace(".jpg","");
+      get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
+        var data = snapshot.val()
+        die()
+      })
+    }
+    window.sendChoice = sendChoice
     window.sendVote = sendVote
   </script>
   <script src="script.js"></script>
