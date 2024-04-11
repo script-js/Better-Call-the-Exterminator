@@ -45,8 +45,8 @@
                 },2000)
               }
               popout(act)
-            } else {
-              popout()
+              clearInterval(acint)
+              acint = setInterval(removeACheck,500)
             }
           }
         })
