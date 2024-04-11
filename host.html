@@ -182,6 +182,7 @@
                   num = num + sortedJSON[k]
                 })
                 if (num == names.length) {
+                  update(ref(getDatabase(), 'gameid/' + newid), {action:null});
                   clearInterval(voteint)
                   var winner = sortedArray[0]
                   popout("<h1>We have a winner:</h1><h2 class='moi'>" + winner + "</h2>")
