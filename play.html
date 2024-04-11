@@ -89,6 +89,10 @@
                 if (data.started == true) {
                   clearInterval(startint)
                   popout()
+                  setTimeout(function() {
+                    popout("&nbsp;")
+                  },500)
+                  turnint = setInterval(turnCheck,1000)
                 }
               }
       })
@@ -171,7 +175,7 @@
       toadd["/gameid/" + gameid + "/players/" + playerID] = null;
       update(dbRef,toadd)
     }
-
+    var turnint;
     function turnCheck() {
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
@@ -183,6 +187,22 @@
               popout()
             },3000)
           },500)
+          clearInterval(turnint)
+          turnint = setInterval(turnBlock,1000)
+        }
+      })
+    }
+
+    function turnBlock() {
+      get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
+        var data = snapshot.val();
+        if (!data.currentGuessers.includes(uid)) {
+          popout()
+                  setTimeout(function() {
+                    popout("&nbsp;")
+                  },500)
+          clearInterval(turnint)
+          turnint = setInterval(turnCheck,1000)
         }
       })
     }
