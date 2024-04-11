@@ -122,10 +122,7 @@
                   num = num + 1
                   tempnames[num] = data[k]
                 })
-                if (tempnames != window.names) {
-                  console.log("reset")
-                  window.names = tempnames
-                } else {console.log("n")}
+                window.names = tempnames
               }})
     }
 
