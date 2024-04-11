@@ -117,3 +117,22 @@ button {
   border: 2px solid black;
   cursor: pointer;
 }
+
+
+@keyframes moiExpand {
+  0% {
+    font-size: 0px;
+  }
+  30% {
+    font-size: 0px;
+  }
+  100% {
+    font-size: 50px;
+  }
+}
+
+.moi {
+  animation: moiExpand ease 4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
