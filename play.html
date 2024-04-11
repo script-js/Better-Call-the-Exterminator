@@ -153,13 +153,6 @@
       var choice = elem.src.split("assets/")[1].replace(".jpg","");
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
-        if (data.currentAttackRoom == rooms[sourceR].room1) {
-          var association = "room1"
-        } else if (data.currentAttackRoom == rooms[sourceR].room2) {
-          var association = "room2"
-        } else if (data.currentAttackRoom == sourceR) {
-          var association = "source"
-        }
         if (data.currentAttackRoom == choice) {
           die()
         } else {
@@ -178,9 +171,25 @@
       toadd["/gameid/" + gameid + "/players/" + playerID] = null;
       update(dbRef,toadd)
     }
+
+    function turnCheck() {
+      get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
+        var data = snapshot.val();
+        if (data.currentGuessers.includes(uid)) {
+          popout()
+          setTimeout(function() {
+            popout("<h1>Get Ready to Guess!</h1>")
+            setTimeout(function() {
+              popout()
+            },3000)
+          },500)
+        }
+      })
+    }
     
     window.sendChoice = sendChoice
     window.sendVote = sendVote
+    window.turnCheck = turnCheck
     window.onbeforeunload = leave
   </script>
   <script src="script.js"></script>
