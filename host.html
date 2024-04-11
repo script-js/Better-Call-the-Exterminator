@@ -116,7 +116,6 @@
       get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
               if (snapshot.exists()) {
                 var data = snapshot.val()
-                sbtn.style.display = "block";
                 var tempnames = [];
                 var num = -1
                 Object.keys(data).forEach(function(k) {
