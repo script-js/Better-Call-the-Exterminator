@@ -183,7 +183,12 @@
                 })
                 if (num == names.length) {
                   clearInterval(voteint)
-                  guess(sortedArray[0])
+                  var winner = sortedArray[0]
+                  popout("<h1>We have a winner:</h1><h2 class='moi'>" + winner + "</h2>")
+                  setTimeout(function() {
+                    popout()
+                    setTimeout(function() {guess(winner)},1000)
+                  },5000)
                 }
               }})
     }
