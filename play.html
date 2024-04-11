@@ -145,6 +145,7 @@
         }
         update(ref(db,"/gameid/" + gameid),toadd)
       })
+      leave()
     }
 
     function sendChoice(elem) {
@@ -154,6 +155,14 @@
         die()
       })
     }
+
+    function leave() {
+      clearInterval(acint)
+      var toadd = {}
+      toadd["/gameid/" + gameid + "/players/" + playerID] = null;
+      update(dbRef,toadd)
+    }
+    
     window.sendChoice = sendChoice
     window.sendVote = sendVote
   </script>
