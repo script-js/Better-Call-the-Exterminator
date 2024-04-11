@@ -129,11 +129,12 @@
         popout("<div style='text-align:center'><h1>Vote Cast</h1>The result will appear on the main screen.</div>")
       });
     }
-    function die(scaretype) {
-      interact("assets/" + scaretype,"Spider Attack!")
+    function die() {
+      var options = ["assets/spider1.png","assets/spider2.png"]
+      interact(options[Math.floor(Math.random() * options.length)],"Spider Attack!")
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
-        var dtext = uid + " was bitten in the " + data.currentAttackRoom
+        var dtext = uid + " was bitten in the " + rooms[data.currentAttackRoom].freindly
         if (data.clues) {
           var toadd = {
             "clues": data.clues + dtext
