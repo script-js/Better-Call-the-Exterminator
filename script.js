@@ -65,5 +65,5 @@ function popout(text) {
 }
 
 function interact(charloc,msg) {
-  popout("<img width='50%' src='" + charloc + "'><h1>" + msg + "</h1>")
+  popout("<img width='270' src='" + charloc + "'><h1>" + msg + "</h1>")
 }
