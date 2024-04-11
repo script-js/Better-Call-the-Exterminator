@@ -152,8 +152,23 @@
     function sendChoice(elem) {
       var choice = elem.src.split("assets/")[1].replace(".jpg","");
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
-        var data = snapshot.val()
-        die()
+        var data = snapshot.val();
+        if (data.currentAttackRoom == rooms[sourceR].room1) {
+          var association = "room1"
+        } else if (data.currentAttackRoom == rooms[sourceR].room2) {
+          var association = "room2"
+        } else if (data.currentAttackRoom == sourceR) {
+          var association = "source"
+        }
+        if (data.currentAttackRoom == choice) {
+          die()
+        } else {
+          if (choice == rooms[sourceR].room1 || choice == rooms[sourceR].room2 || choice == sourceR) {
+            popout("<h1>You see a spider scuttle across the room.</h1>")
+          } else {
+            popout("<h1>You don't see anything in this room.</h1>")
+          }
+        }
       })
     }
 
@@ -166,6 +181,7 @@
     
     window.sendChoice = sendChoice
     window.sendVote = sendVote
+    window.onbeforeunload = leave
   </script>
   <script src="script.js"></script>
 </html>
