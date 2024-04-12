@@ -146,7 +146,7 @@
       interact(options[Math.floor(Math.random() * options.length)],"Spider Attack!")
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
-        var dtext = uid + " was bitten in the " + rooms[data.currentAttackRoom].freindly
+        var dtext = uid + " was bitten in the " + rooms[data.currentAttackRoom].freindly + "<br>"
         if (data.clues) {
           var toadd = {
             "clues": data.clues + dtext
@@ -172,6 +172,17 @@
         } else {
           if (choice == rooms[sourceR].room1 || choice == rooms[sourceR].room2 || choice == sourceR) {
             popout("<h1>You see a spider scuttle across the room.</h1>")
+            var dtext = uid + " saw a spider in the " + rooms[data.currentAttackRoom].freindly + "<br>"
+        if (data.clues) {
+          var toadd = {
+            "clues": data.clues + dtext
+          }
+        } else {
+          var toadd = {
+            "clues": dtext
+          }
+        }
+        update(ref(db,"/gameid/" + gameid),toadd)
           } else {
             popout("<h1>You don't see anything in this room.</h1>")
           }
