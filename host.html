@@ -141,15 +141,13 @@
       var name1 = names[Math.floor(Math.random() * names.length)]
       var name2 = names[Math.floor(Math.random() * names.length)]
       var name3 = names[Math.floor(Math.random() * names.length)]
-      var name4 = names[Math.floor(Math.random() * names.length)]
-      var name5 = names[Math.floor(Math.random() * names.length)]
       update(ref(getDatabase(), 'gameid/' + newid), {
         "currentGuessers": null,
         "guessesComplete": 0
       });
       setTimeout(function() {
       update(ref(getDatabase(), 'gameid/' + newid), {
-        "currentGuessers": name1 + "," + name2 + "," + name3 + "," + name4 + "," + name5,
+        "currentGuessers": name1 + "," + name2 + "," + name3,
         "currentAttackRoom": currentRoom
       });
       },2000)
