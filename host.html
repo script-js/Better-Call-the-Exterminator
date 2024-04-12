@@ -105,13 +105,15 @@
                   stringdata = stringdata + "<div class='name'>" + data[k] + "</div>"
                 })
                 namesD.innerHTML = stringdata
-                sbtn.style.display = "block";
                 window.names = [];
                 var num = -1
                 Object.keys(data).forEach(function(k) {
                   num = num + 1
                   names[num] = data[k]
                 })
+                if (Object.keys(data).length > 1) {
+                  sbtn.style.display = "block";
+                }
               }})
     }
         function getNames2() {
