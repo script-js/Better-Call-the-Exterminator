@@ -48,6 +48,9 @@
               clearInterval(acint)
               acint = setInterval(removeACheck,500)
             }
+          } else {
+            clearInterval(acint)
+            popout("<h1>Game Ended</h1>")
           }
         })
       }
@@ -62,7 +65,10 @@
                   clearInterval(acint)
                   acint = setInterval(actionCheck,500)
                 }
-              }
+              } else {
+            clearInterval(acint)
+            popout("<h1>Game Ended</h1>")
+          }
             })
           }
     var startint;
