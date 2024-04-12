@@ -157,6 +157,8 @@
       var choice = elem.src.split("assets/")[1].replace(".jpg","");
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
+        var num1 = data.guessesComplete + 1;
+        update(ref(db,"/gameid/" + gameid),{"guessesComplete":num1})
         if (data.currentAttackRoom == choice) {
           die()
         } else {
