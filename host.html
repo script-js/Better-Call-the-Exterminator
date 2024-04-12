@@ -45,6 +45,7 @@
           }
       })
       }})
+      setInterval(getInfo,1000)
       }
     function actionCheck() {
         get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
@@ -195,7 +196,6 @@
         if (curl) {location.replace(curl)} else {location.replace("/")}
       }
     var nameint;
-    setInterval(getInfo,1000)
     var voteint;
     function voteCheck() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/votes")).then((snapshot) => {
