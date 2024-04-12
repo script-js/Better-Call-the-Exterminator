@@ -198,7 +198,7 @@
     function turnBlock() {
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
-        if (!data.currentGuessers.includes(uid)) {
+        if (!data.currentGuessers) {
           popout()
                   setTimeout(function() {
                     popout("&nbsp;")
