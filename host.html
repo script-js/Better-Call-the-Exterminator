@@ -93,6 +93,8 @@
         countint = setInterval(count,1000)
         update(ref(getDatabase(), 'gameid/' + newid), {"started":true});
         acint = setInterval(actionCheck,500);
+        roundint = setInterval(roundCheck,1000)
+        newround()
       }
     function getNames() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
@@ -128,7 +130,7 @@
               }
       })
     }
-
+    var roundint;
     function newround() {
       var src = rooms[sourceR]
       var options = [sourceR,src.room1,src.room2]
@@ -139,9 +141,24 @@
       var name4 = names[Math.floor(Math.random() * names.length)]
       var name5 = names[Math.floor(Math.random() * names.length)]
       update(ref(getDatabase(), 'gameid/' + newid), {
+        "currentGuessers": null,
+        "guessesComplete": 0
+      });
+      setTimeout(function() {
+      update(ref(getDatabase(), 'gameid/' + newid), {
         "currentGuessers": name1 + "," + name2 + "," + name3 + "," + name4 + "," + name5,
         "currentAttackRoom": currentRoom
       });
+      },1500)
+    }
+
+    function roundCheck() {
+      get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
+        var data = snapshot.val()
+        if (data.guessesComplete == names.length) {
+          newround()
+        }
+      })
     }
 
     function getInfo() {
