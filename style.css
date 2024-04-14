@@ -132,15 +132,6 @@ button {
   }
 }
 
-@keyframes iTitle {
-  0% {
-    font-size: 0px;
-  }
-  100% {
-    font-size: 50px;
-  }
-}
-
 .moi {
   animation: moiExpand ease 4s;
   animation-iteration-count: 1;
@@ -148,21 +139,21 @@ button {
 }
 
 .it1 {
-  animation: iTitle 100ms;
+  animation: moiExpand 300ms;
   font-size: 50px;
 }
 
 .it2 {
-  animation: iTitle 200ms;
+  animation: moiExpand 400ms;
   font-size: 50px;
 }
 
 .it3 {
-  animation: iTitle 300ms;
+  animation: moiExpand 500ms;
   font-size: 50px;
 }
 
 .it4 {
-  animation: iTitle 400ms;
+  animation: moiExpand 600ms;
   font-size: 50px;
 }
