@@ -132,6 +132,19 @@ button {
   }
 }
 
+
+@keyframes tExpand {
+  0% {
+    font-size: 0px;
+  }
+  80% {
+    font-size: 0px;
+  }
+  100% {
+    font-size: 50px;
+  }
+}
+
 .moi {
   animation: moiExpand ease 4s;
   animation-iteration-count: 1;
@@ -139,21 +152,21 @@ button {
 }
 
 .it1 {
-  animation: moiExpand 1s;
+  animation: tExpand 1s;
   font-size: 50px;
 }
 
 .it2 {
-  animation: moiExpand 2s;
+  animation: tExpand 2s;
   font-size: 50px;
 }
 
 .it3 {
-  animation: moiExpand 3s;
+  animation: tExpand 3s;
   font-size: 50px;
 }
 
 .it4 {
-  animation: moiExpand 4s;
+  animation: tExpand 4s;
   font-size: 50px;
 }
