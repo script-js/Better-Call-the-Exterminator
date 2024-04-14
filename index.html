@@ -11,15 +11,12 @@
   <script>
     function show_image() {
   var img = document.createElement("img");
-  chickensSpawned = chickensSpawned + 1;
-  img.id = "chicken" + chickensSpawned;
   img.src = "assets/spider1.png";
   img.width = "50";
   img.height = "50";
   img.style.position = 'absolute';
   img.style.top = (document.body.clientHeight - 200) * Math.random() + 'px';
   img.style.left = (document.body.clientWidth - 200) * Math.random() + 'px';
-  img.setAttribute("onclick", "destroy(chicken" + chickensSpawned + ")")
   img.setAttribute("draggable","false")
 
   document.body.appendChild(img);
