@@ -12,8 +12,9 @@
     function show_image() {
   var img = document.createElement("img");
   img.src = "assets/spider1.png";
-  img.width = "50";
-  img.height = "50";
+  var dimension = Math.floor(Math.random * 200)
+  img.width = dimension;
+  img.height = dimension;
   img.style.position = 'absolute';
   img.style.top = (document.body.clientHeight - 200) * Math.random() + 'px';
   img.style.left = (document.body.clientWidth - 200) * Math.random() + 'px';
