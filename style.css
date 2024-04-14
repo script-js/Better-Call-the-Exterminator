@@ -148,17 +148,21 @@ button {
 }
 
 .it1 {
-  animation: moiExpand 100ms;
+  animation: iTitle 100ms;
+  font-size: 50px;
 }
 
 .it2 {
-  animation: moiExpand 200ms;
+  animation: iTitle 200ms;
+  font-size: 50px;
 }
 
 .it3 {
-  animation: moiExpand 300ms;
+  animation: iTitle 300ms;
+  font-size: 50px;
 }
 
 .it4 {
-  animation: moiExpand 400ms;
+  animation: iTitle 400ms;
+  font-size: 50px;
 }
