@@ -142,7 +142,19 @@ button {
     font-size: 0px;
   }
   100% {
-    color: black;
+    font-size: 50px;
+  }
+}
+
+@keyframes bShow {
+  0% {
+    right: 200%;
+  }
+  80% {
+    right: 200%
+  }
+  100% {
+    right: 5%;
   }
 }
 
@@ -180,6 +192,7 @@ button {
   position: absolute;
   bottom: 15%;
   right: 5%;
+  animation: bShow 6s;
 }
 
 .indexText {
