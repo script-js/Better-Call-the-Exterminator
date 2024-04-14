@@ -8,4 +8,22 @@
     <div class="indexText"><span class="it1">Better</span> <span class="it2">Call</span> <span class="it3">the</span> <span class="it4">Exterminator!</span></div>
     <div class="indexButtons"><a href="host"><button style="padding: 20px">Host</button></a><a href="join"><button style="padding: 20px">Join</button></a></div>
   </body>
+  <script>
+    function show_image() {
+  var img = document.createElement("img");
+  chickensSpawned = chickensSpawned + 1;
+  img.id = "chicken" + chickensSpawned;
+  img.src = "assets/spider1.png";
+  img.width = "50";
+  img.height = "50";
+  img.style.position = 'absolute';
+  img.style.top = (document.body.clientHeight - 200) * Math.random() + 'px';
+  img.style.left = (document.body.clientWidth - 200) * Math.random() + 'px';
+  img.setAttribute("onclick", "destroy(chicken" + chickensSpawned + ")")
+  img.setAttribute("draggable","false")
+
+  document.body.appendChild(img);
+}
+    setInterval(show_image,3000)
+  </script>
 </html>
