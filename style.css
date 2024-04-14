@@ -132,8 +132,33 @@ button {
   }
 }
 
+@keyframes iTitle {
+  0% {
+    font-size: 0px;
+  }
+  100% {
+    font-size: 50px;
+  }
+}
+
 .moi {
   animation: moiExpand ease 4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.it1 {
+  animation: moiExpand 100ms;
+}
+
+.it2 {
+  animation: moiExpand 200ms;
+}
+
+.it3 {
+  animation: moiExpand 300ms;
+}
+
+.it4 {
+  animation: moiExpand 400ms;
 }
