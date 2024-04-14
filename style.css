@@ -139,21 +139,21 @@ button {
 }
 
 .it1 {
-  animation: moiExpand 300ms;
+  animation: moiExpand 1s;
   font-size: 50px;
 }
 
 .it2 {
-  animation: moiExpand 400ms;
+  animation: moiExpand 2s;
   font-size: 50px;
 }
 
 .it3 {
-  animation: moiExpand 500ms;
+  animation: moiExpand 3s;
   font-size: 50px;
 }
 
 .it4 {
-  animation: moiExpand 600ms;
+  animation: moiExpand 4s;
   font-size: 50px;
 }
