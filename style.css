@@ -117,6 +117,7 @@ button {
   color: black;
   border: 2px solid black;
   cursor: pointer;
+  box-shadow: 1px 1px 2px black;
 }
 
 
@@ -128,7 +129,7 @@ button {
     font-size: 0px;
   }
   100% {
-    font-size: 50px;
+    color: black;
   }
 }
 
@@ -141,7 +142,7 @@ button {
     font-size: 0px;
   }
   100% {
-    font-size: 50px;
+    color: black;
   }
 }
 
@@ -153,20 +154,40 @@ button {
 
 .it1 {
   animation: tExpand 1s;
-  font-size: 50px;
+  color: black;
 }
 
 .it2 {
   animation: tExpand 2s;
-  font-size: 50px;
+  color: black;
 }
 
 .it3 {
   animation: tExpand 3s;
-  font-size: 50px;
+  color: black;
 }
 
 .it4 {
   animation: tExpand 4s;
+  color: black;
+}
+
+.indexBody {
+  background-image: url("assets/title.gif");
+  background-size: cover;
+}
+
+.indexButtons {
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+}
+
+.indexText {
   font-size: 50px;
+  position: absolute;
+  color: black;
+  left: 15%;
+  top: 15%;
+  text-shadow: 1px 1px 2px black;
 }
