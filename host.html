@@ -134,15 +134,29 @@
       var name1 = names[Math.floor(Math.random() * names.length)]
       var name2 = names[Math.floor(Math.random() * names.length)]
       var name3 = names[Math.floor(Math.random() * names.length)]
+      var name4 = names[Math.floor(Math.random() * names.length)]
+      var name5 = names[Math.floor(Math.random() * names.length)]
       update(ref(getDatabase(), 'gameid/' + newid), {
         "currentGuessers": null,
         "guessesComplete": 0
       });
       setTimeout(function() {
-      update(ref(getDatabase(), 'gameid/' + newid), {
-        "currentGuessers": name1 + "," + name2 + "," + name3,
-        "currentAttackRoom": currentRoom
-      });
+        if (names.length < 5) {
+          update(ref(getDatabase(), 'gameid/' + newid), {
+           "currentGuessers": name1,
+           "currentAttackRoom": currentRoom
+          });
+        } else if (names.length > 9) {
+          update(ref(getDatabase(), 'gameid/' + newid), {
+            "currentGuessers": name1 + "," + name2 + "," + name3 + "," + name4 + "," + name5,
+            "currentAttackRoom": currentRoom
+          });
+        } else {
+          update(ref(getDatabase(), 'gameid/' + newid), {
+            "currentGuessers": name1 + "," + name2 + "," + name3,
+            "currentAttackRoom": currentRoom
+          });
+        }
       },2000)
     }
 
@@ -222,7 +236,7 @@
       menu(`
         <div style="text-align:center">
           <h1>How to Play</h1>
-          <p>There's a spider infestation in your house! You quickly call an exterminator, but you realize that you don't know where the nest is! Three people will be selected to go into different rooms to find out where the nest is, but be careful! The spiders are poisonsous and will try bite you if you get too close. These spiders also only travel to rooms that are close to the nest, so you can use the blueprints to find the location of the nest.
+          <p>There's a spider infestation in your house! You quickly call an exterminator, but you realize that you don't know where the nest is! Players will be selected to go into different rooms to find out where the nest is, but be careful! The spiders are poisonsous and will try bite you if you get too close. These spiders also only travel to rooms that are close to the nest, so you can use the blueprints to find the location of the nest.
         </div>
       `)
     window.voteCheck = voteCheck
