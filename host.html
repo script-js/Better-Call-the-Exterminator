@@ -128,6 +128,7 @@
       })
     }
     var roundint;
+    var guesserAmnt;
     function newround() {
       var src = rooms[sourceR]
       var options = [sourceR,src.room1,src.room2]
@@ -143,16 +144,19 @@
       });
       setTimeout(function() {
         if (names.length < 5) {
+          guesserAmnt = 1
           update(ref(getDatabase(), 'gameid/' + newid), {
            "currentGuessers": name1,
            "currentAttackRoom": currentRoom
           });
         } else if (names.length > 9) {
+          guesserAmnt = 5
           update(ref(getDatabase(), 'gameid/' + newid), {
             "currentGuessers": name1 + "," + name2 + "," + name3 + "," + name4 + "," + name5,
             "currentAttackRoom": currentRoom
           });
         } else {
+          guesserAmnt = 3
           update(ref(getDatabase(), 'gameid/' + newid), {
             "currentGuessers": name1 + "," + name2 + "," + name3,
             "currentAttackRoom": currentRoom
@@ -164,7 +168,7 @@
     function roundCheck() {
       get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
         var data = snapshot.val()
-        if (data.guessesComplete == names.length) {
+        if (data.guessesComplete == guesserAmnt) {
           newround()
         }
       })
