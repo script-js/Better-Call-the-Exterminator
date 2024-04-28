@@ -200,6 +200,7 @@
     function turnCheck() {
       get(child(dbRef, "/gameid/" + gameid)).then((snapshot) => {
         var data = snapshot.val();
+        if (data.currentGuessers) {
         if (data.currentGuessers.includes(uid)) {
             popout("<h1>Get Ready to Guess!</h1>")
             setTimeout(function() {
@@ -207,6 +208,7 @@
             },3000)
           clearInterval(turnint)
           turnint = setInterval(turnBlock,1000)
+        }
         }
       })
     }
