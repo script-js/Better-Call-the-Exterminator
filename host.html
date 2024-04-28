@@ -152,7 +152,7 @@
       get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
         var data = snapshot.val()
         if (data.guessesComplete == guesserAmnt) {
-          newround()
+          seTimeout(newround,2000)
         }
       })
     }
