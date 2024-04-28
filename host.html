@@ -73,8 +73,8 @@
               }})
           }
           function pinShow() {
-            pin.innerHTML = newid
-            qr.innerHTML = "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://calltheexterminator.pages.dev/join?id=" + newid + "'><h3>Scan or enter code at https://calltheexterminator.pages.dev/join</h3>"
+            pin.innerHTML = newid + "<h3>Scan or enter code at https://calltheexterminator.pages.dev/join</h3>"
+            qr.innerHTML = "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://calltheexterminator.pages.dev/join?id=" + newid + "'>"
             namesD.innerHTML = "Waiting for players..."
           }
 
