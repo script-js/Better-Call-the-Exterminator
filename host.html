@@ -135,34 +135,16 @@
       var options = [sourceR,src.room1,src.room2]
       var currentRoom = options[Math.floor(Math.random() * options.length)]
       var name1 = names[Math.floor(Math.random() * names.length)]
-      var name2 = names[Math.floor(Math.random() * names.length)]
-      var name3 = names[Math.floor(Math.random() * names.length)]
-      var name4 = names[Math.floor(Math.random() * names.length)]
-      var name5 = names[Math.floor(Math.random() * names.length)]
       update(ref(getDatabase(), 'gameid/' + newid), {
         "currentGuessers": null,
         "guessesComplete": 0
       });
       setTimeout(function() {
-        if (names.length < 5) {
-          guesserAmnt = 1
-          update(ref(getDatabase(), 'gameid/' + newid), {
-           "currentGuessers": name1,
-           "currentAttackRoom": currentRoom
-          });
-        } else if (names.length > 9) {
-          guesserAmnt = 5
-          update(ref(getDatabase(), 'gameid/' + newid), {
-            "currentGuessers": name1 + "," + name2 + "," + name3 + "," + name4 + "," + name5,
-            "currentAttackRoom": currentRoom
-          });
-        } else {
-          guesserAmnt = 3
-          update(ref(getDatabase(), 'gameid/' + newid), {
-            "currentGuessers": name1 + "," + name2 + "," + name3,
-            "currentAttackRoom": currentRoom
-          });
-        }
+        guesserAmnt = 1
+        update(ref(getDatabase(), 'gameid/' + newid), {
+         "currentGuessers": name1,
+         "currentAttackRoom": currentRoom
+        });
       },2000)
     }
 
