@@ -121,6 +121,7 @@
                   tempnames[num] = data[k]
                 })
                 window.names = tempnames
+                if (names.length == 1) {voteS()}
               } else {
                 interact("assets/grave.png","<div>Game Lost!<h5>Everyone was bitten by a spider before the exterminator arrived</h5></div>")
                 setTimeout(endGame,5000)
@@ -197,15 +198,7 @@
          var minTXT = trMin
       }
       if (trHour == 0 && trMin == 0) {
-        update(ref(getDatabase(),'gameid/' + newid),{"action":"<img width='270' src='assets/exterminator.png'><h1>Alright, where are the bugs?</h1>"})
-        setTimeout(function() {
-          update(ref(getDatabase(),'gameid/' + newid),{"action":null})
-          setTimeout(function() { 
-            update(ref(getDatabase(),'gameid/' + newid),{"action":"<h1>Vote for the room you think the nest is.</h1>"})
-            voteint = setInterval(voteCheck,1000)
-          },1000)
-        },5000)
-        clearInterval(countint)
+        voteS()
       } else {
         hostTime.innerHTML = trHour + ":" + minTXT
       }
@@ -244,6 +237,18 @@
           <p>There's a spider infestation in your house! You quickly call an exterminator, but you realize that you don't know where the nest is! Players will be selected to go into different rooms to find out where the nest is, but be careful! The spiders are poisonous and will try bite you if you get too close. These spiders also only travel to rooms that are close to the nest, so you can use the blueprints to find it's location.</p>
         </div>
       `)
+
+    function voteS() {
+      update(ref(getDatabase(),'gameid/' + newid),{"action":"<img width='270' src='assets/exterminator.png'><h1>Alright, where are the bugs?</h1>"})
+        setTimeout(function() {
+          update(ref(getDatabase(),'gameid/' + newid),{"action":null})
+          setTimeout(function() { 
+            update(ref(getDatabase(),'gameid/' + newid),{"action":"<h1>Vote for the room you think the nest is.</h1>"})
+            voteint = setInterval(voteCheck,1000)
+          },1000)
+        },5000)
+        clearInterval(countint)
+    }
     window.voteCheck = voteCheck
     window.count = count
     window.createGame = createGame
