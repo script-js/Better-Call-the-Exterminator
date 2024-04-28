@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="modal" id="popupBack"><div style="font-size: 50px;cursor:pointer;user-select:none;display:none" onclick="menu();setTimeout(function() {popout(`<div style='text-align:center'><h1 style='font-size:70px' id='pin'>Loading PIN...</h1><div id='namesD'></div><p><button onclick='startG()' id='sbtn' style='display:none;margin:auto'>Start</button></p></div>`);setTimeout(createGame,400)},500)" id="close">&times</div><div id="popup" style="width:2px;height:2px;"></div></div>
+    <div class="modal" id="popupBack"><div style="font-size: 50px;cursor:pointer;user-select:none;display:none" onclick="menu();setTimeout(function() {popout(`<div style='text-align:center'><div id='qr'></div><h1 style='font-size:70px' id='pin'>Loading PIN...</h1><div id='namesD'></div><p><button onclick='startG()' id='sbtn' style='display:none;margin:auto'>Start</button></p></div>`);setTimeout(createGame,400)},500)" id="close">&times</div><div id="popup" style="width:2px;height:2px;"></div></div>
     <div class="corkCont"><img src='assets/corkboard.png' height='100%'><div id="hostTime">3:00</div><div id="hostInfo"><h1>What we know</h1>Nothing yet</div></div>
     </body>
     <script src="script.js"></script>
@@ -74,6 +74,7 @@
           }
           function pinShow() {
             pin.innerHTML = newid
+            qr.innerHTML = "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://calltheexterminator.pages.dev/join?id=" + newid + "'><h3>Scan or enter code at https://calltheexterminator.pages.dev/join</h3>"
             namesD.innerHTML = "Waiting for players..."
           }
 
