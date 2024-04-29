@@ -172,7 +172,7 @@
         } else {
           if (choice == rooms[sourceR].room1 || choice == rooms[sourceR].room2 || choice == sourceR) {
             popout("<h1>You see a spider scuttle across the room.</h1>")
-            var dtext = uid + " saw a spider in the " + rooms[data.currentAttackRoom].freindly + "<br>"
+            var dtext = uid + " saw a spider in the " + rooms[choice].freindly + "<br>"
         if (data.clues) {
           var toadd = {
             "clues": data.clues + dtext
