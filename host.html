@@ -89,6 +89,9 @@
         acint = setInterval(actionCheck,500);
         roundint = setInterval(roundCheck,1000)
         newround()
+        update(ref(getDatabase(), 'gameid/' + newid), {
+        "guessesComplete": 0
+      });
       }
     function getNames() {
       get(child(ref(getDatabase()), "gameid/" + newid + "/players")).then((snapshot) => {
