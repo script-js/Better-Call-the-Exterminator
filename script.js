@@ -16,13 +16,13 @@ function guess(g) {
     interact("assets/exterminator.png","There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me at all.")
     setTimeout(function() {
       menu("<h1>The nest was in the " + rooms[sourceR].friendly + ".</h1>")
-      close.onclick = endGame
+      close.onclick = function() {endGame()}
     },2000)
   } else {
     interact("assets/exterminator.png","Alright, I got rid of all the spiders. Now leave me alone.")
     setTimeout(function() {
       menu("<h1>You Won!</h1>")
-      close.onclick = endGame
+      close.onclick = function() {endGame()}
     },2000)
   }
 }
