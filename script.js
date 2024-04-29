@@ -5,7 +5,7 @@ var rooms = {
   "family": {"room1":"living","room2":"kitchen","freindly":"Family Room"},
   "bath": {"room1":"bed2","room2":"bedbath","freindly":"Bathroom"},
   "bed1": {"room1":"living","room2":"bed2","freindly":"Master Bedroom"},
-  "bed2": {"room1":"bed1","room2":"bedbath","freindly":"Bedroom"},
+  "bed2": {"room1":"bed1","room2":"bedbath","freindly":"Second Bedroom"},
   "bedbath": {"room1":"bed2","room2":"bath","freindly":"Ensuite Bathroom"}
 }
 
