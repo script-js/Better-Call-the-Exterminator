@@ -135,23 +135,21 @@
       var options = [sourceR,src.room1,src.room2]
       var currentRoom = options[Math.floor(Math.random() * options.length)]
       var name1 = names[Math.floor(Math.random() * names.length)]
-      update(ref(getDatabase(), 'gameid/' + newid), {
-        "currentGuessers": null,
-        "guessesComplete": 0
-      });
-      setTimeout(function() {
         guesserAmnt = 1
         update(ref(getDatabase(), 'gameid/' + newid), {
          "currentGuessers": name1,
          "currentAttackRoom": currentRoom
         });
-      },2000)
     }
 
     function roundCheck() {
       get(child(ref(getDatabase()), "gameid/" + newid)).then((snapshot) => {
         var data = snapshot.val()
         if (data.guessesComplete == guesserAmnt) {
+          update(ref(getDatabase(), 'gameid/' + newid), {
+        "currentGuessers": null,
+        "guessesComplete": 0
+      });
           setTimeout(newround,2000)
         }
       })
