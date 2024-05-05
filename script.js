@@ -4,8 +4,8 @@ var rooms = {
   "kitchen": {"room1":"living","room2":"family","freindly":"Kitchen"},
   "family": {"room1":"living","room2":"kitchen","freindly":"Family Room"},
   "bath": {"room1":"bed2","room2":"bedbath","freindly":"Bathroom"},
-  "bed1": {"room1":"living","room2":"bed2","freindly":"Master Bedroom"},
-  "bed2": {"room1":"bed1","room2":"bedbath","freindly":"Second Bedroom"},
+  "bed1": {"room1":"living","room2":"bed2","freindly":"Second Bedroom"},
+  "bed2": {"room1":"bed1","room2":"bedbath","freindly":"Master Bedroom"},
   "bedbath": {"room1":"bed2","room2":"bath","freindly":"Ensuite Bathroom"}
 }
 
@@ -15,7 +15,7 @@ function guess(g) {
   if (!g.includes(sourceR)) {
     interact("assets/exterminator.png","There's nothing in there. Call me back when you have an ACTUAL problem. Actually, DON'T call me at all.")
     setTimeout(function() {
-      menu("<h1>The nest was in the " + rooms[sourceR].friendly + ".</h1>")
+      menu("<h1>The nest was in the " + rooms[sourceR].freindly + ".</h1>")
       document.getElementById("close").onclick = function() {endGame()}
     },2000)
   } else {
