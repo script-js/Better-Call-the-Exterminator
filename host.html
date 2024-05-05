@@ -232,6 +232,8 @@
           setTimeout(function() { 
             update(ref(getDatabase(),'gameid/' + newid),{"action":"<h1>Vote for the room you think the nest is.</h1>"})
             voteint = setInterval(voteCheck,1000)
+            hostTime.innerHTML = "VOTE"
+            setTimeout(function() {popout()},2000)
           },1000)
         },5000)
         clearInterval(countint)
