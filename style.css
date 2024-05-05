@@ -189,6 +189,7 @@ button {
   bottom: 15%;
   right: 5%;
   animation: bShow 6s;
+  z-index: 9999;
 }
 
 .indexText {
@@ -197,5 +198,6 @@ button {
   color: black;
   left: 15%;
   top: 15%;
+  z-index: 9998;
   text-shadow: 1px 1px 2px black;
 }
